@@ -1,0 +1,22 @@
+<h2>Product Form - Reactive</h2>
+<div class="container">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <label for="">Name: </label>
+    <input type="text" formControlName="name" />
+
+    <label for="">Email</label>
+    <input type="text" formControlName="email" />
+
+    <label for="">Phone</label>
+    <input type="text" formControlName="phone" />
+
+    <label for="username">UserName</label>
+    <input type="text" formControlName="username" />
+
+    <label for="">Password</label>
+    <input type="text" formControlName="password" hidden="true" />
+
+    <button type="submit" [disabled]="!registerForm.valid">Register</button>
+  </form>
+</div>
+
