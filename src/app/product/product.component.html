@@ -1,0 +1,50 @@
+<h2>Our Products</h2>
+
+<!-- Search Bar -->
+<div class="search-container">
+  <input
+    type="text"
+    [(ngModel)]="searchText"
+    placeholder="Search by brand or description"
+  />
+  <button (click)="searchProduct()">Search</button>
+</div>
+
+<!-- Product Cards -->
+<div class="card-container">
+
+  <div *ngFor="let product of filteredProducts" class="card">
+
+    <div class="product-brand">
+      {{ product.brand }}
+    </div>
+
+    <div class="product-description">
+      {{ product.description }}
+    </div>
+
+    <div class="product-price-qty">
+      <span>₹ {{ product.price }}</span>
+      <span>Stock: {{ product.qty }}</span>
+    </div>
+
+    <div class="buttons">
+      <div class="buttons-array">
+        <button class="qty-btn" (click)="addQty(product.productId!)">+</button>
+        <input
+          type="text"
+          [value]="quantityMap[product.productId!]"
+          class="qty-display"
+          disabled
+        />
+        <button class="qty-btn" (click)="subtractQty(product.productId!)">−</button>
+      </div>
+
+      <button class="add-btn">
+        Add to Cart
+      </button>
+    </div>
+
+  </div>
+
+</div>

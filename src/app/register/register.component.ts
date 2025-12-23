@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -7,6 +8,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+
+  constructor(private router: Router){};
 
   // Initialize the form group with form controls and validations
   registerForm = new FormGroup({
@@ -34,5 +37,13 @@ export class RegisterComponent {
     } else {
       console.error('Form is not valid');  // Log an error if the form is invalid
     }
+  }
+
+  renderLogin(login: string){
+    this.router.navigate([login]);
+  }
+
+  renderData(data: string){
+    this.router.navigate([data]);
   }
 }
