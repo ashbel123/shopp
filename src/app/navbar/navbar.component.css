@@ -1,0 +1,51 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #7b1fa2;
+    padding: 14px 24px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Sections */
+  .nav-left,
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  
+  /* Brand */
+  .brand {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-right: 20px;
+  }
+  
+  /* Links */
+  .navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Hover */
+  .navbar a:hover {
+    background-color: #6a1b9a;
+  }
+  
+  /* Active route */
+  .navbar a.active {
+    background-color: #4a148c;
+  }
+  
+  /* Logout emphasis */
+  .logout {
+    font-weight: 600;
+  }
+  

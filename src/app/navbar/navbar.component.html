@@ -1,0 +1,15 @@
+<nav class="navbar">
+    <div class="nav-left">
+      <span class="brand">ShopEasy</span>
+      <a routerLink="/home" routerLinkActive="active">Home</a>
+      <a routerLink="/product" routerLinkActive="active">Products</a>
+      <a routerLink="/cart" routerLinkActive="active">Cart</a>
+      <a routerLink="/orders" routerLinkActive="active">Orders</a>
+    </div>
+  
+    <div class="nav-right">
+      <a routerLink="/profile" routerLinkActive="active">Profile</a>
+      <a (click)="logout()" class="logout">Logout</a>
+    </div>
+  </nav>
+  

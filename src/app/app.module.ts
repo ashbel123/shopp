@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ProductComponent } from './product/product.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    ProductComponent
+    ProductComponent,
+    NavbarComponent
     
   ],
   imports: [
