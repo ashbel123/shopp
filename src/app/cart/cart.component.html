@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+
+<h2>Your Cart</h2>
+
+<div class="cart-container">
+
+  <div *ngIf="cartItems.length === 0" class="empty-cart">
+    Your cart is empty.
+  </div>
+
+  <div *ngFor="let item of cartItems" class="cart-card">
+
+    <div class="item-info">
+      <span class="name">{{ item.name }}</span>
+
+      <div class="qty-controls">
+        <button (click)="decrease(item)">−</button>
+        <span class="qty">{{ item.quantity }}</span>
+        <button (click)="increase(item)">+</button>
+      </div>
+    </div>
+
+    <div class="item-actions">
+      <span class="item-price">
+        ₹ {{ item.price * item.quantity }}
+      </span>
+
+      <button class="delete-btn" (click)="delete(item)">
+        Delete
+      </button>
+    </div>
+
+  </div>
+
+  <div *ngIf="cartItems.length > 0" class="cart-footer">
+    <span>Total:</span>
+    <span class="total">₹ {{ totalAmount }}</span>
+  </div>
+
+  <button *ngIf="cartItems.length > 0" class="checkout-btn" routerLink="/payment">
+    Proceed to Checkout
+  </button>
+
+</div>

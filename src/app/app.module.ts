@@ -9,6 +9,10 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { OrderComponent } from './order/order.component';
+import { CartComponent } from './cart/cart.component';
+import { ProfileComponent } from './profile/profile.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { NavbarComponent } from './navbar/navbar.component';
     LoginComponent,
     HomeComponent,
     ProductComponent,
-    NavbarComponent
+    NavbarComponent,
+    OrderComponent,
+    CartComponent,
+    ProfileComponent,
+    PaymentComponent
     
   ],
   imports: [

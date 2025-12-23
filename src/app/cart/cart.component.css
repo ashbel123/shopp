@@ -1,0 +1,142 @@
+/* Page heading */
+h2 {
+    text-align: center;
+    color: #6a1b9a;
+    margin: 30px 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Container */
+  .cart-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 0 20px 40px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Empty cart */
+  .empty-cart {
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+    margin-top: 40px;
+  }
+  
+  /* Cart card */
+  .cart-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 18px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Item info */
+  .item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  /* Product name */
+  .name {
+    font-weight: 600;
+    color: #4a148c;
+    font-size: 15px;
+  }
+  
+  /* Quantity controls */
+  .qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .qty-controls button {
+    width: 28px;
+    height: 28px;
+    background-color: #7b1fa2;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+  }
+  
+  .qty-controls button:hover {
+    background-color: #6a1b9a;
+  }
+  
+  .qty {
+    width: 30px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  /* Item actions */
+  .item-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+  
+  /* Price */
+  .item-price {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Delete button */
+  .delete-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+    background-color: #d32f2f;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .delete-btn:hover {
+    background-color: #b71c1c;
+  }
+  
+  /* Cart footer */
+  .cart-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  /* Total */
+  .total {
+    color: #6a1b9a;
+  }
+  
+  /* Checkout button */
+  .checkout-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #7b1fa2;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  
+  .checkout-btn:hover {
+    background-color: #6a1b9a;
+  }
+  

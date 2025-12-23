@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CartService } from '../cart.service';
 import { Product } from '../../model/Product';
 
 @Component({
@@ -8,49 +10,72 @@ import { Product } from '../../model/Product';
 })
 export class ProductComponent implements OnInit {
 
-  products: Product[] = [];
-  filteredProducts: Product[] = [];
-
+  products: Product[] = [];          // original list
+  filteredProducts: Product[] = [];  // displayed list
   searchText: string = '';
 
-  // Quantity handling (per product id)
   quantityMap: { [key: string]: number } = {};
 
+  constructor(
+    private cartService: CartService,
+    private router: Router
+  ) {}
+
   ngOnInit(): void {
-    // Dummy data (later replace with API call)
     this.products = [
       new Product('1', 'Apple', 'iPhone 15', 10, 79999),
       new Product('2', 'Samsung', 'Galaxy S23', 15, 74999),
-      new Product('3', 'Sony', 'Noise Cancelling Headphones', 20, 19999),
-      new Product('4', 'Dell', 'Inspiron Laptop', 8, 55999)
+      new Product('3', 'Sony', 'Headphones', 20, 19999),
+      new Product('4', 'Dell', 'Laptop', 8, 55999)
     ];
 
+    // initially show all products
     this.filteredProducts = [...this.products];
 
-    // Initialize quantities
+    // init quantity map ONCE
     this.products.forEach(p => {
-      if (p.productId) {
-        this.quantityMap[p.productId] = 0;
-      }
+      this.quantityMap[p.productId!] = 0;
     });
   }
 
+  /* 🔍 SEARCH LOGIC (FIXED & SAFE) */
   searchProduct(): void {
-    const text = this.searchText.toLowerCase().trim();
+    const text = this.searchText.trim().toLowerCase();
 
-    this.filteredProducts = this.products.filter(product =>
-      product.brand?.toLowerCase().includes(text) ||
-      product.description?.toLowerCase().includes(text)
+    if (!text) {
+      this.filteredProducts = [...this.products];
+      return;
+    }
+
+    this.filteredProducts = this.products.filter(p =>
+      p.brand?.toLowerCase().includes(text) ||
+      p.description?.toLowerCase().includes(text)
     );
   }
 
-  addQty(productId: string): void {
-    this.quantityMap[productId]++;
+  addQty(id: string) {
+    this.quantityMap[id]++;
   }
 
-  subtractQty(productId: string): void {
-    if (this.quantityMap[productId] > 0) {
-      this.quantityMap[productId]--;
+  subtractQty(id: string) {
+    if (this.quantityMap[id] > 0) {
+      this.quantityMap[id]--;
     }
+  }
+
+  addToCart(product: Product) {
+    const qty = this.quantityMap[product.productId!] || 1;
+
+    this.cartService.addToCart({
+      productId: product.productId!,
+      name: product.description!,
+      price: product.price!,
+      quantity: qty
+    });
+
+    // reset quantity after add
+    this.quantityMap[product.productId!] = 0;
+
+    this.router.navigate(['/cart']);
   }
 }
