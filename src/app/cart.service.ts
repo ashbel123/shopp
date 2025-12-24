@@ -7,46 +7,32 @@ export interface CartItem {
   quantity: number;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class CartService {
 
   private cartItems: CartItem[] = [];
 
-  getCartItems(): CartItem[] {
+  getCartItems() {
     return this.cartItems;
   }
 
   addToCart(item: CartItem) {
-    const existingItem = this.cartItems.find(
-      i => i.productId === item.productId
-    );
-
-    if (existingItem) {
-      existingItem.quantity += item.quantity;
-    } else {
-      this.cartItems.push(item);
-    }
+    const existing = this.cartItems.find(i => i.productId === item.productId);
+    if (existing) existing.quantity += item.quantity;
+    else this.cartItems.push(item);
   }
 
-  increaseQty(productId: string) {
-    const item = this.cartItems.find(i => i.productId === productId);
-    if (item) {
-      item.quantity++;
-    }
+  increaseQty(id: string) {
+    const item = this.cartItems.find(i => i.productId === id);
+    if (item) item.quantity++;
   }
 
-  decreaseQty(productId: string) {
-    const item = this.cartItems.find(i => i.productId === productId);
-    if (item && item.quantity > 1) {
-      item.quantity--;
-    }
+  decreaseQty(id: string) {
+    const item = this.cartItems.find(i => i.productId === id);
+    if (item && item.quantity > 1) item.quantity--;
   }
 
-  removeItem(productId: string) {
-    this.cartItems = this.cartItems.filter(
-      item => item.productId !== productId
-    );
+  removeItem(id: string) {
+    this.cartItems = this.cartItems.filter(i => i.productId !== id);
   }
 }
